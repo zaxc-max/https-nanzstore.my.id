@@ -1,0 +1,236 @@
+:root {
+  --purple: #7c3aed;
+  --black: #000;
+  --white: #fff;
+  --radius: 18px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body, html {
+  font-family: sans-serif;
+  background: conic-gradient(from 180deg at center, #4c1d95, #000000, #4c1d95);
+  animation: spinBg 10s linear infinite;
+  color: var(--white);
+  overflow-x: hidden;
+}
+
+@keyframes spinBg {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.typing-box {
+  font-size: 2.5rem;
+  padding: 20px;
+  max-width: 90%;
+  text-align: center;
+  word-wrap: break-word;
+}
+
+.cursor {
+  display: inline-block;
+  animation: blink 0.7s steps(1) infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 0 }
+  50% { opacity: 1 }
+}
+
+.products {
+  display: none;
+  padding: 60px 30px;
+  background: rgba(0, 0, 0, 0.7);
+  min-height: 100vh;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 40px;
+}
+
+.card-grid {
+  display: grid;
+  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.card {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 20px;
+  border-radius: var(--radius);
+  backdrop-filter: blur(10px);
+  text-align: center;
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+.card:hover {
+  transform: scale(1.05);
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background: #1f1f1f;
+  padding: 30px;
+  border-radius: var(--radius);
+  text-align: center;
+  color: var(--white);
+  width: 90%;
+  max-width: 400px;
+}
+
+.pay-options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.btn {
+  background: var(--purple);
+  border: none;
+  color: var(--white);
+  padding: 10px 20px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.btn:hover {
+  background: #5b21b6;
+}
+.close-btn {
+  margin-top: 20px;
+  background: #333;
+}
+
+.hero.fade-out {
+  animation: blurOut 1s forwards;
+}
+
+@keyframes blurOut {
+  0% {
+    opacity: 1;
+    filter: blur(0px);
+  }
+  100% {
+    opacity: 0;
+    filter: blur(30px);
+    transform: scale(1.05);
+  }
+}
+
+.products {
+  display: none;
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.products.show {
+  display: block;
+  opacity: 1;
+  transform: scale(1);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.card {
+  opacity: 0;
+  transform: translateY(20px) scale(0.95);
+  animation: fadeInUp 0.6s forwards;
+}
+
+.card:nth-child(1) { animation-delay: 0.2s; }
+.card:nth-child(2) { animation-delay: 0.4s; }
+.card:nth-child(3) { animation-delay: 0.6s; }
+/* Tambah terus kalau produk lebih dari 3 */
+
+.payment-layer {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.9);
+  z-index: 1000;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.payment-box {
+  background: #1a1a1a;
+  border-radius: 18px;
+  max-width: 400px;
+  width: 100%;
+  padding: 30px;
+  color: white;
+  text-align: center;
+}
+
+.back-btn {
+  background: #333;
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.pay-options {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.qris-box {
+  background: #2a2a2a;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.qris-info {
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+.qris-img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.contact-btn {
+  background: crimson;
+}
